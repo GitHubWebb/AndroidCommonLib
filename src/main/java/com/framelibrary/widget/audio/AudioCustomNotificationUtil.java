@@ -1,0 +1,259 @@
+package com.framelibrary.widget.audio;
+
+import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.SystemClock;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.media.MediaMetadataCompat;
+import android.support.v4.media.session.MediaButtonReceiver;
+import android.support.v4.media.session.MediaSessionCompat;
+import android.support.v4.media.app.NotificationCompat.MediaStyle;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.media.session.PlaybackStateCompat;
+import android.widget.RemoteViews;
+
+import com.framelibrary.BaseLibActivity;
+import com.framelibrary.R;
+import com.framelibrary.util.DeviceUtils;
+import com.framelibrary.util.LogUtils;
+
+import java.util.Random;
+
+import static android.content.Context.NOTIFICATION_SERVICE;
+
+/**
+ * 音频通知栏管理器
+ *
+ * @author wangwx
+ */
+public class AudioCustomNotificationUtil {
+    private static final String TAG = "AudioCustomNotification";
+    private BaseLibActivity activity;
+    private NotificationManager mNotifiManager;
+    private String channelID = "";
+    private static AudioCustomNotificationUtil audioCustomNotificationUtil;
+    private Notification notification;
+    private String description = "音频播放";
+    public static String audioReceiverAction = "com.audio.notifi.playerReceiver";
+    public static String audioLockScreenReceiverAction = "com.audio.notifi.lockScreenReceiver";
+    public static NotifiMusicBean notifiMusicBean; //当前播放音频数据
+    private int actionRequestCode; //防止音频点击事件错乱 增加的action请求标识
+
+    private static MediaSessionCompat mMediaSession;
+    private PlaybackStateCompat.Builder stateBuilder;
+
+    public static synchronized AudioCustomNotificationUtil getInstance(BaseLibActivity activity, String channelID) {
+        if (audioCustomNotificationUtil == null)
+            audioCustomNotificationUtil = new AudioCustomNotificationUtil(activity, channelID);
+        return audioCustomNotificationUtil;
+    }
+
+    public AudioCustomNotificationUtil(BaseLibActivity activity, String channelID) {
+        this.channelID = channelID;
+        this.activity = activity;
+        mNotifiManager = (NotificationManager) activity.getSystemService(NOTIFICATION_SERVICE);
+    }
+
+    //创建完成后用MediaSessionCompat.setCallback设置上即可使用
+
+    private class MediaSessionCallback extends MediaSessionCompat.Callback {
+
+        @Override
+        public boolean onMediaButtonEvent(Intent mediaButtonEvent) {
+
+            //接收到监听事件
+            return false;
+        }
+
+    }
+
+    public void initSession() {
+        try {
+            mMediaSession = new MediaSessionCompat(activity, channelID);
+            mMediaSession.setFlags(MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS | MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
+            stateBuilder = new PlaybackStateCompat.Builder()
+                    .setActions(PlaybackStateCompat.ACTION_PLAY | PlaybackStateCompat.ACTION_PLAY_PAUSE
+                            | PlaybackStateCompat.ACTION_SKIP_TO_NEXT | PlaybackStateCompat.ACTION_SKIP_TO_PREVIOUS);
+            mMediaSession.setPlaybackState(stateBuilder.build());
+
+            //设置MediaSession启动 (很重要,不启动则无法接受到数据)
+            mMediaSession.setActive(true);
+        } catch (Exception e) {
+            LogUtils.E(TAG, "initSession , e=" + e.getMessage());
+        }
+    }
+
+    @SuppressLint("WrongConstant")
+    public void showNotificationAudioCustomView() {
+        initSession();
+
+        byte[] bis = notifiMusicBean.getNotifiImgByte();
+        Bitmap bitmap = DeviceUtils.Bytes2Bimap(bis);
+        Intent reActivity = new Intent(activity, activity.getClass());
+        reActivity.putExtra(notifiMusicBean.getFieldName(), notifiMusicBean.getId());
+        PendingIntent pIntent = PendingIntent.getActivity(activity, 0, reActivity, 0);
+
+        //设置按钮事件
+        Intent preintent = new Intent(activity, AudioPlayerReceiver.class);
+        preintent.putExtra("action", "pre");
+        preintent.putExtra("channelID", channelID);
+        preintent.setAction(audioReceiverAction);
+        PendingIntent prepi = PendingIntent.getBroadcast(activity, 1, preintent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        PendingIntent prepi = PendingIntent.getService(libActivity, 0, preintent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Intent pauaseOrStartIntent = new Intent(activity, AudioPlayerReceiver.class);
+        pauaseOrStartIntent.putExtra("action", "pause");
+        pauaseOrStartIntent.putExtra("channelID", channelID);
+        pauaseOrStartIntent.setAction(audioReceiverAction);
+        PendingIntent pausepi = PendingIntent.getBroadcast(activity, 2, pauaseOrStartIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        PendingIntent pausepi = PendingIntent.getService(libActivity, 1, pauaseOrStartIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Intent nextIntent = new Intent(activity, AudioPlayerReceiver.class);
+        nextIntent.putExtra("action", "next");
+        nextIntent.putExtra("channelID", channelID);
+        nextIntent.setAction(audioReceiverAction);
+        PendingIntent nextpi = PendingIntent.getBroadcast(activity, 3, nextIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        PendingIntent nextpi = PendingIntent.getService(libActivity, 2, nextIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Intent closeIntent = new Intent(activity, AudioPlayerReceiver.class);
+        closeIntent.putExtra("action", "close");
+        closeIntent.putExtra("channelID", channelID);
+        closeIntent.setAction(audioReceiverAction);
+        PendingIntent closepi = PendingIntent.getBroadcast(activity, 4, closeIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            @SuppressLint("WrongConstant") NotificationChannel mChannel = new NotificationChannel(channelID, description, NotificationManager.IMPORTANCE_DEFAULT);
+            mChannel.setDescription(description);//渠道描述
+            mChannel.setImportance(NotificationCompat.PRIORITY_MAX);//设置最大优先级
+
+            mNotifiManager.createNotificationChannel(mChannel);
+        }
+
+//        updateLocMsg();
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(activity, channelID);
+
+        builder.setContentTitle(notifiMusicBean.getTitle());
+//                    builder.setContentText("Song Title");
+        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setLargeIcon(bitmap);
+        builder.setDefaults(NotificationCompat.DEFAULT_ALL);
+
+                   /* builder
+                            .setCustomBigContentView(mBigRemoteViews)
+                            .setContent(mRemoteViews)
+                            .setSmallIcon(R.drawable.ic_launcher)
+                            .setOngoing(true)    // 设置通知栏能否被清楚，true不能被清除，false可以被清除
+                            .setPriority(NotificationCompat.PRIORITY_MAX)//设置最大优先级
+                            .setTicker("music is playing");*/
+        //第一个参数是图标资源id 第二个是图标显示的名称，第三个图标点击要启动的PendingIntent
+        if (activity.mBindService != null && activity.mBindService.mediaPlayer != null) {
+            String mediaStatusActionExtra = activity.mBindService.isPlaying() ? "pause" : "playing";
+
+            builder.addAction(generateAction(R.drawable.audio_widget_pre, "pre"));
+            if ("pause".equals(mediaStatusActionExtra)) {
+                builder.addAction(generateAction(R.drawable.audio_widget_play, "pause"));
+            } else {
+                builder.addAction(generateAction(R.drawable.audio_widget_pause, "playing"));
+            }
+            builder.addAction(generateAction(R.drawable.audio_widget_next, "next"));
+
+            builder.setStyle(new MediaStyle()
+                    .setMediaSession(mMediaSession.getSessionToken())
+                    .setShowCancelButton(true)
+                    .setShowActionsInCompactView(1, 2)
+                    .setCancelButtonIntent(
+                            MediaButtonReceiver.buildMediaButtonPendingIntent(
+                                    activity, PlaybackStateCompat.ACTION_STOP)));
+            /*NotificationCompat.MediaStyle mMediaStyle = new NotificationCompat.MediaStyle();
+                    *//*mMediaStyle.setMediaSession(new MediaSessionCompat(libActivity, "MediaSession",
+                            new ComponentName(libActivity, Intent.ACTION_MEDIA_BUTTON), null).getSessionToken());*//*
+            //设置上面创建的MediaSession
+            mMediaStyle.setMediaSession(sessionCompat.getSessionToken());
+
+            //CancelButton在5.0以下的机器有效
+            mMediaStyle.setCancelButtonIntent(pIntent);
+            mMediaStyle.setShowCancelButton(true);
+            //设置要现实在通知右方的图标 最多三个
+            mMediaStyle.setShowActionsInCompactView(1, 2);
+
+            builder.setStyle(mMediaStyle);*/
+            builder.setShowWhen(false);
+
+            //设置锁屏是否显示 在 Android5.0+ 的锁屏界面可以隐藏Notification内容
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder.setVisibility(Notification.VISIBILITY_PUBLIC);
+            }
+
+            //设置通知优先度,让我们的 Notification 显示在最上面
+            builder.setPriority(Notification.PRIORITY_MAX);
+
+            //设置通知类别为服务
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder.setCategory(Notification.CATEGORY_SERVICE);
+            }
+            notification = builder.build();
+
+            //如果不想被清理加上下面这两行代码的任何一行都可以
+            notification.flags |= Notification.FLAG_NO_CLEAR;
+            // n.flags=Notification.FLAG_ONGOING_EVENT;
+
+            mNotifiManager.notify(Integer.parseInt(channelID), notification);
+            activity.notification = notification;
+            activity.notificationManager = mNotifiManager;
+
+        }
+    }
+
+
+    /**
+     * 生成按钮Action
+     *
+     * @param icon         图标资源
+     * @param intentAction 按钮产生的广播Action
+     * @return 按钮Action
+     */
+    private NotificationCompat.Action generateAction(int icon, String intentAction) {
+        Intent nextIntent = new Intent(activity, AudioPlayerReceiver.class);
+        nextIntent.putExtra("action", intentAction);
+        nextIntent.putExtra("channelID", channelID);
+        nextIntent.setAction(audioReceiverAction);
+
+        return new NotificationCompat.Action(icon, intentAction,
+                PendingIntent.getBroadcast(activity, actionRequestCode++, nextIntent, PendingIntent.FLAG_UPDATE_CURRENT));
+    }
+
+    public void updateLocMsg() {
+        try {
+            //同步歌曲信息
+            MediaMetadataCompat.Builder md = new MediaMetadataCompat.Builder();
+            md.putString(MediaMetadataCompat.METADATA_KEY_TITLE, notifiMusicBean.getTitle());
+            md.putString(MediaMetadataCompat.METADATA_KEY_ARTIST, notifiMusicBean.getFieldName());//音乐作者
+            md.putString(MediaMetadataCompat.METADATA_KEY_ALBUM,
+                    "https://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=notification.mediaStyle&step_word=&hs=0&pn=1&spn=0&di=141734196892&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=1514839875%2C1405586809&os=2347827358%2C292192692&simid=0%2C0&adpicid=0&lpn=0&ln=1872&fr=&fmq=1553478275685_R&fm=&ic=undefined&s=undefined&hd=undefined&latest=undefined&copyright=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=&objurl=http%3A%2F%2Fwww.suunto.cn%2Fcontentassets%2Fccc1cb4e008045d59547d005b49c8e59%2Fnotification_2.png&fromurl=ippr_z2C%24qAzdH3FAzdH3Fooo_z%26e3Bf77gp5_z%26e3BvgAzdH3Fzi-vifAzdH3Ff7rr56pAzdH3Fr6517vp-f7rr56pAzdH3Ff77gp5_frw6pwg_7sp6wAzdH3Ff77gp5_frw6pwg_7sp6wAzdH3Fujwp76jfAzdH3Fg5ptutvwpt5gfAzdH3F&gsm=0&rpstart=0&rpnum=0&islist=&querylist=&force=undefined");
+            //音乐专辑
+            md.putLong(MediaMetadataCompat.METADATA_KEY_DURATION, 99);//音乐时长
+            mMediaSession.setMetadata(md.build());
+        } catch (Exception e) {
+            LogUtils.E(TAG, "updateLocMsg , e=" + e.getMessage());
+        }
+
+    }
+
+    public static void release() {
+        if (mMediaSession != null) {
+            mMediaSession.setCallback(null);
+            mMediaSession.setActive(false);
+            mMediaSession.release();
+        }
+    }
+}

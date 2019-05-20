@@ -1,0 +1,28 @@
+package com.framelibrary.widget.recycleview;
+
+import android.app.Activity;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+
+import com.framelibrary.util.bean.BaseBean;
+
+/**
+ *
+ */
+
+public abstract class BaseRecycleViewHolder<T> extends RecyclerView.ViewHolder {
+
+    public RecyclerItemClickListener recyclerItemClickListener;
+    public int viewHolderPosition;
+    public BaseBean baseBean;
+    protected Activity context;
+
+    public BaseRecycleViewHolder(View itemView) {
+        super(itemView);
+        context = (Activity) itemView.getContext();
+    }
+
+    public abstract void setUpView(T model, int position, RecyclerView.Adapter adapter);
+
+    public abstract void updateData(BaseBean baseBean, int position, RecyclerItemClickListener recyclerItemClickListener);
+}

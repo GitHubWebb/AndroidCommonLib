@@ -1,0 +1,138 @@
+apply plugin: 'com.android.library'
+apply plugin: 'cn.leo.plugin.magic' //java singleClick用这个
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+
+    //忽略图片警告
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+
+    dexOptions {
+        dexInProcess true
+        preDexLibraries true
+
+        incremental true //最大堆内存
+        jumboMode = true
+        javaMaxHeapSize "8g"
+        preDexLibraries = true //线程数
+        threadCount = 8
+    }
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 26
+
+        multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        /* 线下审查环境 */
+        check {
+            debuggable true
+            minifyEnabled true //是否混淆
+            //是否设置zip对齐优化
+            zipAlignEnabled true
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    compileOptions {//使用JAVA8语法解析
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+    }
+}
+
+dependencies {
+    api 'com.squareup.okhttp3:okhttp:3.9.1'
+    api 'com.google.code.gson:gson:2.8.0'
+    compile files('libs/android-async-http-1.4.6.jar')
+    compile files('libs/FileDownloader-0.3.2-sources.jar')
+    compile files('libs/FileDownloader-0.3.2.jar')
+    compile files('libs/umeng-analytics-v6.0.1.jar')
+    compile files('libs/universal-image-loader-1.9.4-with-sources.jar')
+    compile files('libs/ZipEntry.jar')
+    compile files('libs/ZXing-core-3.2.1.jar')
+    compile 'org.apache.httpcomponents:httpcore:4.4.2'
+    compile 'com.mcxiaoke.volley:library:1.0.+'
+    //noinspection GradleCompatible,GradleCompatible
+    api 'com.android.support:support-v4:26.1.0'
+    api 'com.android.support:support-media-compat:26.+'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    //noinspection GradleCompatible
+    api 'com.android.support:design:27.1.1'
+    api files('libs/pldroid-shortvideo-1.10.0.jar')
+    api 'com.github.anzewei:parallaxbacklayout:1.1.9'
+    //最新版本见github
+    api 'com.liulishuo.filedownloader:library:1.7.6'
+    //时间选择器 年月日
+    api 'com.contrarywind:Android-PickerView:3.2.6'
+    //城市: 省/市/区
+    // https://github.com/crazyandcoder/citypicker/wiki/%E6%A0%B7%E5%BC%8F%E4%B8%80%EF%BC%88%E4%BB%BFiOS%E6%BB%9A%E8%BD%AE%E5%AE%9E%E7%8E%B0%EF%BC%89
+    api 'liji.library.dev:citypickerview:4.0.1'
+    //给xml 中view 设置阴影  https://blog.csdn.net/guozhaohui628/article/details/72757740
+    api 'com.github.dmytrodanylyk.shadow-layout:library:1.0.3'
+    //吴晓龙的下拉刷新上拉加载RecyclerView
+    //    https://github.com/WuXiaolong/PullLoadMoreRecyclerView
+    //史上最简单侧滑菜单，0耦合，支持任意ViewGroup。一步集成侧滑(删除)菜单，高仿QQ、IOS。~
+    api 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0'
+    // 仿IOS switchButton https://github.com/iielse/SwitchButton
+    api 'ch.ielse:switchbutton:1.0.1'
+    //可以首尾滚动的ViewPager https://github.com/zhpanvip/CircleViewPager
+    //    api 'com.zhpan.library:viewpager:1.0.5'
+    //    api project(':cirlceview_viewpager')
+    /*https://github.com/ithuangqing/ItHqSimpleTabLayout
+        TabLayout+ViewPager的简单封装，实现页面的左右滑动，适合新手练习使用！三行代码即可实现Tab滑动选项效果，快来试试吧！*/
+    api 'com.github.ithuangqing:ItHqSimpleTabLyout:v1.4'
+    // http://p.codekk.com/detail/Android/simplepeng/SpiderMan debug 模式崩溃日志抓取
+    api 'com.simple:spiderman:1.1.0'
+    debugImplementation('com.simple:spiderman:1.1.0') {
+        exclude group: "com.android.support"
+    }
+
+    //https://github.com/jarryleo/SingleClick 防止重复点击
+    api 'com.github.jarryleo:SingleClick:v1.8.3'
+
+    //Android通用圆角布局。https://github.com/GcsSloop/rclayout
+//    api 'com.gcssloop.widget:rclayout:1.8.1'
+    // mylhyl/Android-CircleDialog    简介：仿 IOS 圆角对话框、进度条、列表框、输入框
+
+    //功能强大，UI简洁，交互优雅的通用弹窗！
+    //可以替代Dialog，PopupWindow，PopupMenu，BottomSheet，DrawerLayout，Spinner等组件，自带十几种效果良好的动画， 支持完全的UI和动画自定义！
+    //https://github.com/li-xiaojun/XPopup
+    api 'com.lxj:xpopup:1.5.2'
+
+    api project(':TryToSeeVideoJiaoZi')
+
+    //Activity 路由跳转   https://github.com/alibaba/ARouter/blob/master/README_CN.md
+    // 替换成最新版本, 需要注意的是api
+    // 要与compiler匹配使用，均使用最新版可以保证兼容
+    api 'com.alibaba:arouter-api:1.4.1'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+
+    api 'org.greenrobot:eventbus:3.0.0'
+
+    api 'com.facebook.fresco:fresco:1.9.0'
+
+    implementation 'com.jakewharton:butterknife:8.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.2.1'
+}

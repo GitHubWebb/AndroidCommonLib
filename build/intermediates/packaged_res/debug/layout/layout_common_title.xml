@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_common_title"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_50"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/iv_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:contentDescription="@null"
+        android:padding="@dimen/dp_10"
+        android:src="@mipmap/icon_back" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="@dimen/dp_250"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/text_title"
+        android:textColor="@color/base_black"
+        android:textSize="@dimen/sp_18" />
+
+
+    <ImageView
+        android:id="@+id/iv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@null"
+        android:padding="@dimen/dp_10"
+        android:src="@mipmap/icon_search"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/dp_10"
+        android:text="@string/text_right"
+        android:textColor="@color/base_img_color"
+        android:textSize="@dimen/sp_13"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/view_split"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_net_2"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/tv_right"
+        android:layout_marginTop="@dimen/dp_5"
+        android:background="#f0f0f0" />
+</RelativeLayout>
