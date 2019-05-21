@@ -4,10 +4,12 @@ apply plugin: 'com.jakewharton.butterknife'
 
 apply plugin: 'maven'
 ext {
+    //记住一下规则,等会导入时注意, 举例compile 'com.dz.bleota:bleota:1.0.0'
+
     GITHUB_REPO_PATH = "AAR"
     PUBLISH_GROUP_ID = 'com.wwxframe'
     PUBLISH_ARTIFACT_ID = 'aar'
-    PUBLISH_VERSION = '1.0.1'
+    PUBLISH_VERSION = '1.0.2'
 }
 
 uploadArchives {
@@ -137,7 +139,9 @@ dependencies {
     //    api project(':cirlceview_viewpager')
     /*https://github.com/ithuangqing/ItHqSimpleTabLayout
         TabLayout+ViewPager的简单封装，实现页面的左右滑动，适合新手练习使用！三行代码即可实现Tab滑动选项效果，快来试试吧！*/
-    api 'com.github.ithuangqing:ItHqSimpleTabLyout:v1.4'
+    api('com.github.ithuangqing:ItHqSimpleTabLyout:v1.4') {
+        exclude group: "com.android.support"
+    }
 
     // http://p.codekk.com/detail/Android/simplepeng/SpiderMan debug 模式崩溃日志抓取
     api 'com.simple:spiderman:1.1.0'
@@ -157,7 +161,12 @@ dependencies {
     //https://github.com/li-xiaojun/XPopup
     api 'com.lxj:xpopup:1.5.2'
 
-    api project(':TryToSeeVideoJiaoZi')
+//    api project(':TryToSeeVideoJiaoZi')
+
+    implementation('com.wwxframe.trytoseevideo:aar:+@aar') {
+        transitive = true
+        exclude group: "com.android.support"
+    }
 
     //Activity 路由跳转   https://github.com/alibaba/ARouter/blob/master/README_CN.md
     // 替换成最新版本, 需要注意的是api
@@ -174,5 +183,4 @@ dependencies {
 
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-
 }
