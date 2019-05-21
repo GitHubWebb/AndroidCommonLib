@@ -4,8 +4,8 @@ apply plugin: 'com.jakewharton.butterknife'
 
 apply plugin: 'maven'
 ext {
-    GITHUB_REPO_PATH = "C/AAR"
-    PUBLISH_GROUP_ID = 'wwxframe.lib'
+    GITHUB_REPO_PATH = "AAR"
+    PUBLISH_GROUP_ID = 'com.wwxframe'
     PUBLISH_ARTIFACT_ID = 'aar'
     PUBLISH_VERSION = '1.0.1'
 }
