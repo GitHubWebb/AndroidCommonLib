@@ -296,6 +296,20 @@ public abstract class BaseMusicService extends IntentService {
         mediaPlayer.seekTo(gotoTimer, MediaPlayer.SEEK_CLOSEST);
     }
 
+    //获取当前播放进度
+    public long getCurrentTime() {
+        if (mediaPlayer == null)
+            return 0L;
+        return mediaPlayer.getCurrentPosition();
+    }
+
+    //获取当前播放总进度
+    public long getTotalTime() {
+        if (mediaPlayer == null)
+            return 0L;
+        return mediaPlayer.getDuration();
+    }
+
     //播放状态
     public boolean isPlaying() {
         if (mediaPlayer != null && mediaPlayer.isPlaying())
