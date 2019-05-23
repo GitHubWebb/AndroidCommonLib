@@ -1,5 +1,6 @@
 package com.framelibrary.widget.audio;
 
+import android.annotation.TargetApi;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -77,14 +79,6 @@ public abstract class BaseMusicService extends IntentService {
         notificationUtil = notificationUtil.getInstance(currentActivity, channelID);
     }
 
-    //播放状态
-    public boolean isPlaying(){
-        if (mediaPlayer !=null && mediaPlayer.isPlaying())
-            return true;
-
-        return false;
-    }
-
     /**
      * 服务启动的时候调用
      */
@@ -132,7 +126,7 @@ public abstract class BaseMusicService extends IntentService {
                 if (requestFocus()) {
                     mediaPlayer.setOnCompletionListener(completionListener);
                     mediaPlayer.setOnErrorListener(mediaPlayerOnErrorListener);
-                    if (!mediaPlayer.isPlaying()) {
+                    if (!isPlaying()) {
                         mediaPlayer.start();
                         if (currentActivity.notification == null || currentActivity.notificationManager == null) {
                             //创造音频播放Notification
@@ -152,7 +146,7 @@ public abstract class BaseMusicService extends IntentService {
 
     public void pause() {
         try {
-            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            if (mediaPlayer != null && isPlaying()) {
                 if (!mediaPlayer.isLooping()) {
                     mAm.abandonAudioFocus(afChangeListener);
                 }
@@ -239,7 +233,7 @@ public abstract class BaseMusicService extends IntentService {
     public void play(Context context, String url, @Nullable OnMediaPlayerFinishInterface mediaPlayerFinishInterface) {
         if (mediaPlayerFinishInterface != null)
             this.mediaPlayerFinishInterface = mediaPlayerFinishInterface;
-        if (mediaPlayer != null && mediaPlayer.isPlaying())
+        if (mediaPlayer != null && isPlaying())
             pause();
 
         if (context != null && !StringUtils.isBlank(url))
@@ -250,7 +244,7 @@ public abstract class BaseMusicService extends IntentService {
                     if (mediaPlayer != null) {
                         mediaPlayer.setOnCompletionListener(completionListener);
                         mediaPlayer.setOnErrorListener(mediaPlayerOnErrorListener);
-                        if (!mediaPlayer.isPlaying()) {
+                        if (!isPlaying()) {
                             mediaPlayer.start();
                         }
                     }
@@ -272,7 +266,7 @@ public abstract class BaseMusicService extends IntentService {
 
     public void stop() {
         if (mediaPlayer != null) {
-            if (mediaPlayer.isPlaying()) {
+            if (isPlaying()) {
                 mediaPlayer.stop();
             }
             mediaPlayer.reset();
@@ -294,6 +288,22 @@ public abstract class BaseMusicService extends IntentService {
     // Random number generator
     private final Random mGenerator = new Random();
 
+    //调节播放进度 避免调节播放位置不准确
+    @TargetApi(Build.VERSION_CODES.O)
+    public void seekTo(long gotoTimer) {
+        if (mediaPlayer == null)
+            return;
+        mediaPlayer.seekTo(gotoTimer, MediaPlayer.SEEK_CLOSEST);
+    }
+
+    //播放状态
+    public boolean isPlaying() {
+        if (mediaPlayer != null && mediaPlayer.isPlaying())
+            return true;
+
+        return false;
+    }
+
     /**
      * 根据音频地址判断当前是否播放&是否播放的是当前地址
      *
@@ -306,7 +316,7 @@ public abstract class BaseMusicService extends IntentService {
         if (mediaPlayer == null || !audio_url.equals(this.audioUrl))
             return 0;
 
-        if (mediaPlayer.isPlaying())
+        if (isPlaying())
             return 2;
         else
             return 1;
@@ -339,8 +349,8 @@ public abstract class BaseMusicService extends IntentService {
             //frontMusic();
         } else if (type.equals("pause")) {
             Intent i = new Intent(this, AudioPlayerReceiver.class);
-            Log.d("isplaying", mediaPlayer.isPlaying() + "");
-            if (mediaPlayer.isPlaying())
+            Log.d("isplaying", isPlaying() + "");
+            if (isPlaying())
                 i.putExtra("action", "playing");
             else
                 i.putExtra("action", "pause");
