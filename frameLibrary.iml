@@ -49,13 +49,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/debug/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/debug/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebug/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebug/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebug/assets" type="java-test-resource" />
@@ -63,6 +56,13 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebug/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebug/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestDebug/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/testDebug/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/assets" type="java-resource" />
@@ -93,19 +93,16 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/check_manifest_result" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/compile_only_not_namespaced_r_class_jar" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/consumer_proguard_file" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/full_jar" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/intermediate-jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javac" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_and_local_jars_jni" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint_jar" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged-classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged_res" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/proguard-files" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/proguard-rules" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/public_res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
@@ -126,30 +123,30 @@
     <orderEntry type="library" name="Gradle: tv.danmaku.ijk.media:ijkplayer-java:0.8.8@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.alibaba:arouter-api:1.4.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\works\VirtuousDoctor-test\frameLibrary\libs\universal-image-loader-1.9.4-with-sources.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:livedata-core:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:runtime:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:transition:27.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:common:1.1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:viewmodel:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.ithuangqing:ItHqSimpleTabLyout:v1.4@aar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\works\VirtuousDoctor-test\frameLibrary\libs\android-async-http-1.4.6.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\MyApplication\frameLibrary\libs\pldroid-shortvideo-1.10.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.contrarywind:Android-PickerView:3.2.6@aar" level="project" />
     <orderEntry type="library" name="Gradle: liji.library.dev:citypickerview:4.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-v4:27.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.dueeeke.dkplayer:dkplayer-java:2.5.7@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:design:27.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.core:runtime:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\MyApplication\frameLibrary\libs\ZipEntry.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.dmytrodanylyk.shadow-layout:library:1.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable:27.1.1@aar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\works\VirtuousDoctor-test\frameLibrary\libs\ZXing-core-3.2.1.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-core:2.9.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.fresco:imagepipeline-base:1.9.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:annotations:4.8.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\MyApplication\frameLibrary\libs\ZXing-core-3.2.1.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout:1.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\MyApplication\frameLibrary\libs\android-async-http-1.4.6.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.jarryleo:SingleClick:v1.8.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-ui:2.9.1@aar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\works\VirtuousDoctor-test\frameLibrary\libs\ZipEntry.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.aspectj:aspectjrt:1.8.9@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-core-ui:27.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-smoothstreaming:2.9.1@aar" level="project" />
@@ -157,11 +154,14 @@
     <orderEntry type="library" name="Gradle: com.android.support:cardview-v7:26.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.greenrobot:eventbus:3.0.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: cn.jzvd:jiaozivideoplayer:7.0_preview@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\MyApplication\frameLibrary\libs\FileDownloader-0.3.2.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.dueeeke.dkplayer:dkplayer-ui:2.5.7@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.jakewharton:butterknife:8.8.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7:27.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.simple:spiderman:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\MyApplication\frameLibrary\libs\umeng-analytics-v6.0.1.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\MyApplication\frameLibrary\libs\FileDownloader-0.3.2-sources.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.dueeeke.dkplayer:dkplayer-arm64:2.5.7@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:gifdecoder:4.8.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.lxj:easyadapter:1.1.0@aar" level="project" />
@@ -174,20 +174,20 @@
     <orderEntry type="library" name="Gradle: com.parse.bolts:bolts-tasks:1.4.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.fresco:drawee:1.9.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:multidex:1.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.wwxframe:trytoseevideo:1.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.13.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\works\VirtuousDoctor-test\frameLibrary\libs\FileDownloader-0.3.2.jar:unspecified@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.android.support:multidex-instrumentation:1.0.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.jakewharton:butterknife-annotations:8.8.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: ch.ielse:switchbutton:1.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.fresco:fbcore:1.9.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.mcxiaoke.volley:library:1.0.19@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\MyApplication\frameLibrary\libs\universal-image-loader-1.9.4-with-sources.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.alibaba:arouter-annotation:1.0.6@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.dueeeke.dkplayer:dkplayer-x86:2.5.7@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.anzewei:parallaxbacklayout:1.1.9@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.soloader:soloader:0.3.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpcore:4.4.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.9.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\works\VirtuousDoctor-test\frameLibrary\libs\umeng-analytics-v6.0.1.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.fresco:fresco:1.9.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.liulishuo.filedownloader:library:1.7.6@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-compat:27.1.1@aar" level="project" />
@@ -195,13 +195,10 @@
     <orderEntry type="library" name="Gradle: com.android.support:support-media-compat:27.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-hls:2.9.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-fragment:27.1.1@aar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\works\VirtuousDoctor-test\frameLibrary\libs\pldroid-shortvideo-1.10.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:disklrucache:4.8.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:E.\jeemoo\Android\works\VirtuousDoctor-test\frameLibrary\libs\FileDownloader-0.3.2-sources.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.core:common:1.1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.lxj:xpopup:1.5.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.dueeeke.dkplayer:dkplayer-x86_64:2.5.7@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer:2.9.1@aar" level="project" />
-    <orderEntry type="module" module-name="TryToSeeVideoJiaoZi" />
   </component>
 </module>
