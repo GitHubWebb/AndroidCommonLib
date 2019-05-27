@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-  <info organisation="VirtuousDoctor-test" module="frameLibrary" revision="unspecified" status="integration" publication="20190521104331"/>
+  <info organisation="MyApplication" module="frameLibrary" revision="unspecified" status="integration" publication="20190527174249"/>
   <configurations>
     <conf name="_internal_aapt2_binary" visibility="private" transitive="false"/>
     <conf name="androidApis" visibility="public"/>
@@ -151,11 +151,12 @@
     <dependency org="com.github.dmytrodanylyk.shadow-layout" name="library" rev="1.0.3" conf="api-&gt;default"/>
     <dependency org="com.github.mcxtzhang" name="SwipeDelMenuLayout" rev="V1.3.0" conf="api-&gt;default"/>
     <dependency org="ch.ielse" name="switchbutton" rev="1.0.1" conf="api-&gt;default"/>
-    <dependency org="com.github.ithuangqing" name="ItHqSimpleTabLyout" rev="v1.4" conf="api-&gt;default"/>
+    <dependency org="com.github.ithuangqing" name="ItHqSimpleTabLyout" rev="v1.4" conf="api-&gt;default">
+      <exclude org="com.android.support" module="*"/>
+    </dependency>
     <dependency org="com.simple" name="spiderman" rev="1.1.0" conf="api-&gt;default"/>
     <dependency org="com.github.jarryleo" name="SingleClick" rev="v1.8.3" conf="api-&gt;default"/>
     <dependency org="com.lxj" name="xpopup" rev="1.5.2" conf="api-&gt;default"/>
-    <dependency org="VirtuousDoctor-test" name="TryToSeeVideoJiaoZi" rev="unspecified" conf="api-&gt;default"/>
     <dependency org="com.alibaba" name="arouter-api" rev="1.4.1" conf="api-&gt;default"/>
     <dependency org="org.greenrobot" name="eventbus" rev="3.0.0" conf="api-&gt;default"/>
     <dependency org="com.facebook.fresco" name="fresco" rev="1.9.0" conf="api-&gt;default"/>
@@ -170,6 +171,10 @@
     </dependency>
     <dependency org="com.android.support" name="multidex" rev="1.0.2" conf="debugRuntimeClasspath-&gt;default"/>
     <dependency org="org.aspectj" name="aspectjrt" rev="1.8.9" conf="implementation-&gt;default"/>
+    <dependency org="com.wwxframe" name="trytoseevideo" rev="+" conf="implementation-&gt;default">
+      <artifact name="trytoseevideo" type="aar" ext="aar" conf="implementation"/>
+      <exclude org="com.android.support" module="*"/>
+    </dependency>
     <dependency org="com.jakewharton" name="butterknife" rev="8.8.1" conf="implementation-&gt;default"/>
     <dependency org="com.android.tools.lint" name="lint-gradle" rev="26.3.0" conf="lintClassPath-&gt;default"/>
     <dependency org="com.android.support" name="multidex" rev="1.0.2" conf="releaseCompileClasspath-&gt;default"/>
@@ -213,6 +218,21 @@
     <dependency org="com.lxj" name="xpopup" rev="1.5.2" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.android.support" name="cardview-v7" rev="26.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.lxj" name="easyadapter" rev="1.1.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.alibaba" name="arouter-api" rev="1.4.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.alibaba" name="arouter-annotation" rev="1.0.6" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="org.greenrobot" name="eventbus" rev="3.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.facebook.fresco" name="fresco" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.facebook.fresco" name="fbcore" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.facebook.fresco" name="drawee" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.facebook.fresco" name="imagepipeline" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.facebook.fresco" name="imagepipeline-base" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.facebook.soloader" name="soloader" rev="0.3.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.parse.bolts" name="bolts-tasks" rev="1.4.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.github.bumptech.glide" name="glide" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.github.bumptech.glide" name="gifdecoder" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.github.bumptech.glide" name="disklrucache" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.github.bumptech.glide" name="annotations" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.wwxframe" name="trytoseevideo" rev="1.0.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="cn.jzvd" name="jiaozivideoplayer" rev="7.0_preview" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="tv.danmaku.ijk.media" name="ijkplayer-java" rev="0.8.8" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.google.android.exoplayer" name="exoplayer" rev="2.9.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
@@ -228,20 +248,6 @@
     <dependency org="com.github.dueeeke.dkplayer" name="dkplayer-x86" rev="2.5.7" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.github.dueeeke.dkplayer" name="dkplayer-x86_64" rev="2.5.7" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.github.dueeeke.dkplayer" name="dkplayer-ui" rev="2.5.7" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.alibaba" name="arouter-api" rev="1.4.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.alibaba" name="arouter-annotation" rev="1.0.6" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="org.greenrobot" name="eventbus" rev="3.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.facebook.fresco" name="fresco" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.facebook.fresco" name="fbcore" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.facebook.fresco" name="drawee" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.facebook.fresco" name="imagepipeline" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.facebook.fresco" name="imagepipeline-base" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.facebook.soloader" name="soloader" rev="0.3.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.parse.bolts" name="bolts-tasks" rev="1.4.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.github.bumptech.glide" name="glide" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.github.bumptech.glide" name="gifdecoder" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.github.bumptech.glide" name="disklrucache" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.github.bumptech.glide" name="annotations" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.jakewharton" name="butterknife" rev="8.8.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.jakewharton" name="butterknife-annotations" rev="8.8.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.android.support" name="multidex" rev="1.0.2" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
