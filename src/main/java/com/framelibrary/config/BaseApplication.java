@@ -7,6 +7,7 @@ import android.util.DisplayMetrics;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.request.RequestOptions;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.framelibrary.AppManager;
 import com.framelibrary.BuildConfig;
 import com.framelibrary.R;
@@ -90,6 +91,8 @@ public class BaseApplication extends MultiDexApplication {
         DateUtils.setClickLimit(true);
         displayMetrics = getResources().getDisplayMetrics();
         //初始化Fresco
+        Fresco.initialize(this, ImagePipelineConfigFactory.getImagePipelineConfig(this));
+
 //        Fresco.initialize(this);
 
         initGlideRequestOptions();

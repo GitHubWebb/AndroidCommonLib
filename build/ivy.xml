@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-  <info organisation="MyApplication" module="frameLibrary" revision="unspecified" status="integration" publication="20190530110804"/>
+  <info organisation="MyApplication" module="frameLibrary" revision="unspecified" status="integration" publication="20190530135257"/>
   <configurations>
     <conf name="_internal_aapt2_binary" visibility="private" transitive="false"/>
     <conf name="androidApis" visibility="public"/>
@@ -159,7 +159,7 @@
     <dependency org="com.lxj" name="xpopup" rev="1.5.2" conf="api-&gt;default"/>
     <dependency org="com.alibaba" name="arouter-api" rev="1.4.1" conf="api-&gt;default"/>
     <dependency org="org.greenrobot" name="eventbus" rev="3.0.0" conf="api-&gt;default"/>
-    <dependency org="com.facebook.fresco" name="fresco" rev="1.9.0" conf="api-&gt;default"/>
+    <dependency org="com.facebook.fresco" name="fresco" rev="1.13.0" conf="api-&gt;default"/>
     <dependency org="com.github.bumptech.glide" name="glide" rev="4.8.0" conf="api-&gt;default"/>
     <dependency org="com.android.support" name="multidex" rev="1.0.2" conf="checkCompileClasspath-&gt;default"/>
     <dependency org="com.android.support" name="multidex" rev="1.0.2" conf="checkRuntimeClasspath-&gt;default"/>
@@ -221,13 +221,15 @@
     <dependency org="com.alibaba" name="arouter-api" rev="1.4.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.alibaba" name="arouter-annotation" rev="1.0.6" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="org.greenrobot" name="eventbus" rev="3.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.facebook.fresco" name="fresco" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.facebook.fresco" name="fbcore" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.facebook.fresco" name="drawee" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.facebook.fresco" name="imagepipeline" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.facebook.fresco" name="imagepipeline-base" rev="1.9.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.facebook.soloader" name="soloader" rev="0.3.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.facebook.fresco" name="fresco" rev="1.13.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.facebook.fresco" name="fbcore" rev="1.13.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.facebook.fresco" name="drawee" rev="1.13.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.facebook.fresco" name="imagepipeline" rev="1.13.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.facebook.fresco" name="imagepipeline-base" rev="1.13.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.facebook.soloader" name="soloader" rev="0.6.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.parse.bolts" name="bolts-tasks" rev="1.4.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.facebook.fresco" name="nativeimagefilters" rev="1.13.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.facebook.fresco" name="nativeimagetranscoder" rev="1.13.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.github.bumptech.glide" name="glide" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.github.bumptech.glide" name="gifdecoder" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.github.bumptech.glide" name="disklrucache" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
