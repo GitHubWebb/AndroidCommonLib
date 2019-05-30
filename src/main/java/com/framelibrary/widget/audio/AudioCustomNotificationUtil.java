@@ -97,6 +97,9 @@ public class AudioCustomNotificationUtil {
     public void showNotificationAudioCustomView() {
         initSession();
 
+        if (notifiMusicBean == null)
+            return;
+
         byte[] bis = notifiMusicBean.getNotifiImgByte();
         Bitmap bitmap = DeviceUtils.Bytes2Bimap(bis);
         Intent reActivity = new Intent(activity, activity.getClass());
@@ -175,7 +178,7 @@ public class AudioCustomNotificationUtil {
                             MediaButtonReceiver.buildMediaButtonPendingIntent(
                                     activity, PlaybackStateCompat.ACTION_STOP)));
             /*NotificationCompat.MediaStyle mMediaStyle = new NotificationCompat.MediaStyle();
-                    *//*mMediaStyle.setMediaSession(new MediaSessionCompat(libActivity, "MediaSession",
+             *//*mMediaStyle.setMediaSession(new MediaSessionCompat(libActivity, "MediaSession",
                             new ComponentName(libActivity, Intent.ACTION_MEDIA_BUTTON), null).getSessionToken());*//*
             //设置上面创建的MediaSession
             mMediaStyle.setMediaSession(sessionCompat.getSessionToken());

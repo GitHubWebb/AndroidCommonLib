@@ -62,4 +62,20 @@ public class MyImmersionBottomSheetDialog extends BottomSheetDialog {
         bottomSheetBehavior.setHideable(isSlide);//fasle此处设置表示禁止BottomSheetBehavior的执行
         return bottomSheetBehavior;
     }
+
+
+    //设置是否直接进入展开状态
+    public void setSTATE_EXPANDED(boolean isSTATE_EXPANDED) {
+        if (!isSTATE_EXPANDED)
+            return;
+
+        //避免隐藏菜单时崩溃
+        BottomSheetBehavior behavior = setSlide(isSTATE_EXPANDED);//fasle此处设置表示禁止BottomSheetBehavior的执行
+        behavior.setPeekHeight(0);
+        behavior.setState(BottomSheetBehavior.STATE_EXPANDED);//展开状态
+
+        //表示在隐藏时，跳过折叠状态，直接进入隐藏状态。
+        behavior.setSkipCollapsed(true);
+
+    }
 }
