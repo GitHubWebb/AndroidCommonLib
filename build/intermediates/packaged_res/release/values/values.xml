@@ -153,6 +153,8 @@
     <dimen name="dp_375">375dp</dimen>
     <dimen name="dp_38">38dp</dimen>
     <dimen name="dp_39">39dp</dimen>
+    <dimen name="dp_390">390dp</dimen>
+    <dimen name="dp_392">392dp</dimen>
     <dimen name="dp_4">4dp</dimen>
     <dimen name="dp_40">40dp</dimen>
     <dimen name="dp_41">41dp</dimen>

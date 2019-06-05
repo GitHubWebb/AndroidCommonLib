@@ -1007,6 +1007,8 @@ dimen dp_37
 dimen dp_375
 dimen dp_38
 dimen dp_39
+dimen dp_390
+dimen dp_392
 dimen dp_4
 dimen dp_40
 dimen dp_41

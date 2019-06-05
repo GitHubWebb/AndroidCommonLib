@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-  <info organisation="MyApplication" module="frameLibrary" revision="unspecified" status="integration" publication="20190530135257"/>
+  <info organisation="MyApplication" module="frameLibrary" revision="unspecified" status="integration" publication="20190605120741"/>
   <configurations>
     <conf name="_internal_aapt2_binary" visibility="private" transitive="false"/>
     <conf name="androidApis" visibility="public"/>
@@ -141,7 +141,6 @@
     <dependency org="com.squareup.okhttp3" name="okhttp" rev="3.9.1" conf="api-&gt;default"/>
     <dependency org="com.google.code.gson" name="gson" rev="2.8.0" conf="api-&gt;default"/>
     <dependency org="org.apache.httpcomponents" name="httpcore" rev="4.4.2" conf="api-&gt;default"/>
-    <dependency org="com.mcxiaoke.volley" name="library" rev="1.0.+" conf="api-&gt;default"/>
     <dependency org="com.android.support" name="support-v4" rev="26.1.0" conf="api-&gt;default"/>
     <dependency org="com.android.support" name="design" rev="27.1.1" conf="api-&gt;default"/>
     <dependency org="com.github.anzewei" name="parallaxbacklayout" rev="1.1.9" conf="api-&gt;default"/>
@@ -171,8 +170,7 @@
     </dependency>
     <dependency org="com.android.support" name="multidex" rev="1.0.2" conf="debugRuntimeClasspath-&gt;default"/>
     <dependency org="org.aspectj" name="aspectjrt" rev="1.8.9" conf="implementation-&gt;default"/>
-    <dependency org="com.wwxframe" name="trytoseevideo" rev="+" conf="implementation-&gt;default">
-      <artifact name="trytoseevideo" type="aar" ext="aar" conf="implementation"/>
+    <dependency org="com.wwxframe" name="trytoseevideo" rev="0.0.1" conf="implementation-&gt;default">
       <exclude org="com.android.support" module="*"/>
     </dependency>
     <dependency org="com.jakewharton" name="butterknife" rev="8.8.1" conf="implementation-&gt;default"/>
@@ -182,7 +180,6 @@
     <dependency org="com.squareup.okio" name="okio" rev="1.13.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.google.code.gson" name="gson" rev="2.8.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="org.apache.httpcomponents" name="httpcore" rev="4.4.2" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.mcxiaoke.volley" name="library" rev="1.0.19" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.android.support" name="support-v4" rev="27.1.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.android.support" name="support-compat" rev="27.1.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.android.support" name="support-annotations" rev="27.1.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
@@ -234,7 +231,7 @@
     <dependency org="com.github.bumptech.glide" name="gifdecoder" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.github.bumptech.glide" name="disklrucache" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.github.bumptech.glide" name="annotations" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.wwxframe" name="trytoseevideo" rev="1.0.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.wwxframe" name="trytoseevideo" rev="0.0.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="cn.jzvd" name="jiaozivideoplayer" rev="7.0_preview" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="tv.danmaku.ijk.media" name="ijkplayer-java" rev="0.8.8" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.google.android.exoplayer" name="exoplayer" rev="2.9.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>

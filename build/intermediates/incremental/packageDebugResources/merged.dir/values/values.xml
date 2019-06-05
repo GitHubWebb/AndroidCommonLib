@@ -153,6 +153,8 @@
     <dimen name="dp_375">375dp</dimen>
     <dimen name="dp_38">38dp</dimen>
     <dimen name="dp_39">39dp</dimen>
+    <dimen name="dp_390">390dp</dimen>
+    <dimen name="dp_392">392dp</dimen>
     <dimen name="dp_4">4dp</dimen>
     <dimen name="dp_40">40dp</dimen>
     <dimen name="dp_41">41dp</dimen>
@@ -268,17 +270,13 @@
     <string name="text_submit">提交</string>
     <string name="text_title">标题</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
+        
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-        <!-- 设置全屏-->
+        
+        
         <item name="android:windowFullscreen">true</item>
-        <!-- 设置无标题-->
+        
         <item name="android:windowNoTitle">true</item>
 
     </style>
