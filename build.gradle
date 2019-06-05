@@ -9,7 +9,7 @@ ext {
     GITHUB_REPO_PATH = "AAR"
     PUBLISH_GROUP_ID = 'com.wwxframe'
     PUBLISH_ARTIFACT_ID = 'aar'
-    PUBLISH_VERSION = '0.0.1'
+    PUBLISH_VERSION = '0.0.4'
 }
 
 uploadArchives {
@@ -110,7 +110,7 @@ dependencies {
     api files('libs/ZipEntry.jar')
     api files('libs/ZXing-core-3.2.1.jar')
     api 'org.apache.httpcomponents:httpcore:4.4.2'
-    api 'com.mcxiaoke.volley:library:1.0.+'
+
     //noinspection GradleCompatible,GradleCompatible
     api 'com.android.support:support-v4:26.1.0'
 //    api 'com.android.support:support-media-compat:26.+'
@@ -163,7 +163,7 @@ dependencies {
 
 //    api project(':TryToSeeVideoJiaoZi')
 
-    implementation('com.wwxframe:trytoseevideo:+@aar') {
+    implementation('com.wwxframe:trytoseevideo:0.0.1') {
         transitive = true
         exclude group: "com.android.support"
     }

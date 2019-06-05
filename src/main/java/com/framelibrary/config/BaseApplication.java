@@ -115,7 +115,7 @@ public class BaseApplication extends MultiDexApplication {
 
     public SharedPreferences getSharedPreferences() {
         if (sharedPreferences == null) {
-            sharedPreferences = getSharedPreferences("unlock_date", MODE_MULTI_PROCESS);
+            sharedPreferences = getSharedPreferences(BuildConfig.APPLICATION_ID+"unlock_date", MODE_MULTI_PROCESS);
         }
         return sharedPreferences;
     }
