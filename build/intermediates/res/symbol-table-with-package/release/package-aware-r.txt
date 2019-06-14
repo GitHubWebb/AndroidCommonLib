@@ -121,12 +121,6 @@ attr buttonStyle
 attr buttonStyleSmall
 attr buttonTint
 attr buttonTintMode
-attr cardBackgroundColor
-attr cardCornerRadius
-attr cardElevation
-attr cardMaxElevation
-attr cardPreventCornerOverlap
-attr cardUseCompatPadding
 attr checkboxStyle
 attr checkedTextViewStyle
 attr citypicker_text_cancel_color
@@ -163,11 +157,6 @@ attr contentInsetLeft
 attr contentInsetRight
 attr contentInsetStart
 attr contentInsetStartWithNavigation
-attr contentPadding
-attr contentPaddingBottom
-attr contentPaddingLeft
-attr contentPaddingRight
-attr contentPaddingTop
 attr contentScrim
 attr controlBackground
 attr controller_layout_id
@@ -207,7 +196,6 @@ attr expandedTitleMarginEnd
 attr expandedTitleMarginStart
 attr expandedTitleMarginTop
 attr expandedTitleTextAppearance
-attr fabCustomSize
 attr fabSize
 attr fadeDuration
 attr failureImage
@@ -613,10 +601,6 @@ color bright_foreground_material_dark
 color bright_foreground_material_light
 color button_material_dark
 color button_material_light
-color cardview_dark_background
-color cardview_light_background
-color cardview_shadow_end_color
-color cardview_shadow_start_color
 color colorAccent
 color colorPrimary
 color colorPrimaryDark
@@ -844,9 +828,6 @@ dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen activity_horizontal_margin
 dimen activity_vertical_margin
-dimen cardview_compat_inset_shadow
-dimen cardview_default_elevation
-dimen cardview_default_radius
 dimen compat_button_inset_horizontal_material
 dimen compat_button_inset_vertical_material
 dimen compat_button_padding_horizontal_material
@@ -1139,6 +1120,8 @@ dimen tooltip_vertical_padding
 dimen tooltip_y_offset_non_touch
 dimen tooltip_y_offset_touch
 drawable _xpopup_round3_bg
+drawable _xpopup_round3_dark_bg
+drawable _xpopup_shadow
 drawable abc_ab_share_pack_mtrl_alpha
 drawable abc_action_bar_item_background_material
 drawable abc_btn_borderless_material
@@ -1808,7 +1791,6 @@ id video_item
 id video_quality_wrapper_area
 id view_offset_helper
 id view_split
-id view_statusbar_shadow
 id viewfinder_view
 id visible
 id volume_image_tip
@@ -2139,7 +2121,6 @@ style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog
 style Base_Animation_AppCompat_DropDownUp
 style Base_Animation_AppCompat_Tooltip
-style Base_CardView
 style Base_DialogWindowTitleBackground_AppCompat
 style Base_DialogWindowTitle_AppCompat
 style Base_TextAppearance_AppCompat
@@ -2298,9 +2279,6 @@ style Base_Widget_AppCompat_Toolbar
 style Base_Widget_AppCompat_Toolbar_Button_Navigation
 style Base_Widget_Design_AppBarLayout
 style Base_Widget_Design_TabLayout
-style CardView
-style CardView_Dark
-style CardView_Light
 style DialogCicleStyle
 style ExoMediaButton
 style ExoMediaButton_FastForward
@@ -2574,7 +2552,6 @@ styleable BaseIjkVideoView autoRotate enableAudioFocus enableMediaCodec looping 
 styleable BottomNavigationView elevation itemBackground itemIconTint itemTextColor menu
 styleable BottomSheetBehavior_Layout behavior_hideable behavior_peekHeight behavior_skipCollapsed
 styleable ButtonBarLayout allowStacking
-styleable CardView android_minHeight android_minWidth cardBackgroundColor cardCornerRadius cardElevation cardMaxElevation cardPreventCornerOverlap cardUseCompatPadding contentPadding contentPaddingBottom contentPaddingLeft contentPaddingRight contentPaddingTop
 styleable CityPickerView citypicker_text_cancel_color citypicker_text_confirm_color citypicker_title_action_size citypicker_title_background citypicker_title_text_size citypicker_wheel_color citypicker_wheel_text_color citypicker_wheel_text_size
 styleable CollapsingToolbarLayout collapsedTitleGravity collapsedTitleTextAppearance contentScrim expandedTitleGravity expandedTitleMargin expandedTitleMarginBottom expandedTitleMarginEnd expandedTitleMarginStart expandedTitleMarginTop expandedTitleTextAppearance scrimAnimationDuration scrimVisibleHeightTrigger statusBarScrim title titleEnabled toolbarId
 styleable CollapsingToolbarLayout_Layout layout_collapseMode layout_collapseParallaxMultiplier
@@ -2587,7 +2564,7 @@ styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_a
 styleable DefaultTimeBar ad_marker_color ad_marker_width bar_height buffered_color played_ad_marker_color played_color scrubber_color scrubber_disabled_size scrubber_dragged_size scrubber_drawable scrubber_enabled_size touch_target_height unplayed_color
 styleable DesignTheme bottomSheetDialogTheme bottomSheetStyle textColorError
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness
-styleable FloatingActionButton backgroundTint backgroundTintMode borderWidth elevation fabCustomSize fabSize pressedTranslationZ rippleColor useCompatPadding
+styleable FloatingActionButton backgroundTint backgroundTintMode borderWidth elevation fabSize pressedTranslationZ rippleColor useCompatPadding
 styleable FloatingActionButton_Behavior_Layout behavior_autoHide
 styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery
 styleable FontFamilyFont android_font android_fontStyle android_fontWeight font fontStyle fontWeight

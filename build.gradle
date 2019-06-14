@@ -9,7 +9,7 @@ ext {
     GITHUB_REPO_PATH = "AAR"
     PUBLISH_GROUP_ID = 'com.wwxframe'
     PUBLISH_ARTIFACT_ID = 'aar'
-    PUBLISH_VERSION = '0.0.4'
+    PUBLISH_VERSION = '0.0.6'
 }
 
 uploadArchives {
@@ -54,7 +54,7 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 17
+        minSdkVersion 18
         targetSdkVersion 26
 
         multiDexEnabled true
@@ -114,9 +114,11 @@ dependencies {
     //noinspection GradleCompatible,GradleCompatible
     api 'com.android.support:support-v4:26.1.0'
 //    api 'com.android.support:support-media-compat:26.+'
-//    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
     //noinspection Gracom.android.support:appcompat-v7:26.+dleCompatible
-    api 'com.android.support:design:27.1.1'
+    api 'com.android.support:design:26.1.0'
+
     api files('libs/pldroid-shortvideo-1.10.0.jar')
     api 'com.github.anzewei:parallaxbacklayout:1.1.9'
     //最新版本见github
@@ -159,7 +161,7 @@ dependencies {
     //功能强大，UI简洁，交互优雅的通用弹窗！
     //可以替代Dialog，PopupWindow，PopupMenu，BottomSheet，DrawerLayout，Spinner等组件，自带十几种效果良好的动画， 支持完全的UI和动画自定义！
     //https://github.com/li-xiaojun/XPopup
-    api 'com.lxj:xpopup:1.5.2'
+    api 'com.lxj:xpopup:1.8.1'
 
 //    api project(':TryToSeeVideoJiaoZi')
 
