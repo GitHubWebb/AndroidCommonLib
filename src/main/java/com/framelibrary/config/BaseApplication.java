@@ -15,6 +15,7 @@ import com.framelibrary.util.Constant;
 import com.framelibrary.util.DateUtils;
 import com.framelibrary.widget.glide.GlideRoundTransform;
 import com.github.anzewei.parallaxbacklayout.ParallaxHelper;
+import com.hjq.toast.ToastUtils;
 import com.liulishuo.filedownloader.FileDownloader;
 import com.simple.spiderman.SpiderMan;
 
@@ -102,6 +103,8 @@ public class BaseApplication extends MultiDexApplication {
         appManager = AppManager.getAppManager();
 
         FileDownloader.setup(this);//注意作者已经不建议使用init方法
+
+        ToastUtils.init(instance);
 
     }
 

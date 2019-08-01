@@ -1,7 +1,10 @@
 package com.framelibrary.util;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.Application;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -33,6 +36,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+
+import com.framelibrary.config.BaseApplication;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -356,17 +361,17 @@ public class DeviceUtils {
     /**
      * 应用重启
      */
-    public static void reStartApplication() {
-        /*ReceiverScannerDataUtils.getInstance().destoryScannerManager();
-        MyApplication.appManager.finishAllActivity();
-		Intent intent = new Intent(MyApplication.getInstance(), LoginActivity.class);
-        PendingIntent restartIntent = PendingIntent.getActivity(MyApplication.getInstance().getApplicationContext(),
+    public static void reStartApplication(Class<?> clazz) {
+        /*ReceiverScannerDataUtils.getInstance().destoryScannerManager();*/
+        BaseApplication.appManager.finishAllActivity();
+		Intent intent = new Intent(BaseApplication.getInstance(), clazz);
+        @SuppressLint("WrongConstant") PendingIntent restartIntent = PendingIntent.getActivity(BaseApplication.getInstance().getApplicationContext(),
                 0, intent, Intent.FLAG_ACTIVITY_NEW_TASK);//| Intent.FLAG_ACTIVITY_CLEAR_TOP
         //退出程序
-        AlarmManager mgr = (AlarmManager)MyApplication.getInstance().getSystemService(Context.ALARM_SERVICE);
-        mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 1000, restartIntent); // 1秒钟后重启应用
+        AlarmManager mgr = (AlarmManager)BaseApplication.getInstance().getSystemService(Context.ALARM_SERVICE);
+        mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, restartIntent); // 0.1秒钟后重启应用
         android.os.Process.killProcess(android.os.Process.myPid());
-        System.exit(1);*/
+        System.exit(1);
     }
 
     /**

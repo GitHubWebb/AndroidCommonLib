@@ -74,6 +74,7 @@ public class SelectPopWindowDate {
                 //.isDialog(true)//是否显示为对话框样式
                 .build();
 
+        pvTime.setDate(Calendar.getInstance());
         pvTime.show();
     }
 }
