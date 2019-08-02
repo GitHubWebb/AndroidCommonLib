@@ -23,6 +23,10 @@ public class DateUtils {
     private static boolean clickLimit = false;
     private static int intervalTime = 500; //间隔时长
 
+    public static void setIntervalTime(int intervalTime) {
+        DateUtils.intervalTime = intervalTime;
+    }
+
     public static void setClickLimit(boolean clickLimitParam) {
         clickLimit = clickLimitParam;
     }

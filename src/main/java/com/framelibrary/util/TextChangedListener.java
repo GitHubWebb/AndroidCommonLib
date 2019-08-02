@@ -11,6 +11,9 @@ import android.widget.EditText;
 import com.framelibrary.config.BaseApplication;
 import com.lljjcoder.style.citylist.Toast.ToastUtils;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * EditText字符串修改监听
  *
@@ -52,15 +55,71 @@ public class TextChangedListener {
         }
     }
 
+    /**
+     * 根据传递InputFilter[] 设置限制输入条件
+     *
+     * @param maxLength
+     * @param inputFilterArr
+     * @param editText
+     */
+    public static void inputLimitSpaceWrap(int maxLength, InputFilter[] inputFilterArr, EditText... editText) {
+        if (inputFilterArr != null && inputFilterArr.length != 0) {
+            for (int i = 0; i < editText.length; i++) {
+
+                for (int j = 0; j < inputFilterArr.length; j++) {
+                    editText[i].setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxLength), SpaceWrap, inputFilterArr[j]});
+                }
+
+            }
+        }
+    }
+
+    /**
+     * 禁止输入空格
+     */
     private static InputFilter SpaceWrap = new InputFilter() {
         @Override
         public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
             if (source.equals(" ") || source.toString().contentEquals("\n")) {
 
-                ToastUtils.showShortToast(BaseApplication.getInstance().getBaseContext(),"禁止输入空格!");
+                ToastUtils.showShortToast(BaseApplication.getInstance().getBaseContext(), "禁止输入空格!");
                 return "";
 
             } else return null;
+        }
+    };
+
+    public static InputFilter NumWrap = new InputFilter() {
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+            if (source.equals(0) || source.equals(1) ||
+                    source.equals(2) || source.equals(3) ||
+                    source.equals(4) || source.equals(5) ||
+                    source.equals(6) || source.equals(7) ||
+                    source.equals(8) || source.equals(9)) {
+
+                ToastUtils.showShortToast(BaseApplication.getInstance().getBaseContext(), "禁止输入数字!");
+                return "";
+
+            } else return null;
+        }
+    };
+
+    /**
+     * 禁止EditText输入特殊字符
+     */
+    public static InputFilter filterSpecialCharacters = new InputFilter() {
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+            String speChat = "[`~!@#$%^&*()+-=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
+            Pattern pattern = Pattern.compile(speChat);
+            Matcher matcher = pattern.matcher(source.toString());
+            if (matcher.find()) {
+                ToastUtils.showShortToast(BaseApplication.getInstance().getBaseContext(), "禁止输入特殊字符!");
+                return "";
+            } else {
+                return null;
+            }
         }
     };
 

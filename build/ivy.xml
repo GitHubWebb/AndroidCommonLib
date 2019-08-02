@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-  <info organisation="MyApplication" module="frameLibrary" revision="unspecified" status="integration" publication="20190801172833"/>
+  <info organisation="MyApplication" module="frameLibrary" revision="unspecified" status="integration" publication="20190803012130"/>
   <configurations>
     <conf name="_internal_aapt2_binary" visibility="private" transitive="false"/>
     <conf name="androidApis" visibility="public"/>
@@ -69,7 +69,6 @@
     <conf name="implementation" visibility="private" extends="api"/>
     <conf name="lintChecks" visibility="private"/>
     <conf name="lintClassPath" visibility="private"/>
-    <conf name="lintPublish" visibility="private"/>
     <conf name="provided" visibility="private"/>
     <conf name="publish" visibility="private"/>
     <conf name="releaseAnnotationProcessor" visibility="private"/>
@@ -133,8 +132,8 @@
     <artifact name="frameLibrary" type="aar" ext="aar" conf="archives,default"/>
   </publications>
   <dependencies>
-    <dependency org="com.android.tools.build" name="aapt2" rev="3.4.1-5326820" conf="_internal_aapt2_binary-&gt;default">
-      <artifact name="aapt2" type="jar" ext="jar" m:classifier="linux" conf="_internal_aapt2_binary"/>
+    <dependency org="com.android.tools.build" name="aapt2" rev="3.3.0-5013011" conf="_internal_aapt2_binary-&gt;default">
+      <artifact name="aapt2" type="jar" ext="jar" m:classifier="windows" conf="_internal_aapt2_binary"/>
     </dependency>
     <dependency org="com.alibaba" name="arouter-compiler" rev="1.2.2" conf="annotationProcessor-&gt;default"/>
     <dependency org="com.github.bumptech.glide" name="compiler" rev="4.8.0" conf="annotationProcessor-&gt;default"/>
@@ -178,7 +177,7 @@
     </dependency>
     <dependency org="com.jakewharton" name="butterknife" rev="8.8.1" conf="implementation-&gt;default"/>
     <dependency org="com.hjq" name="toast" rev="8.0" conf="implementation-&gt;default"/>
-    <dependency org="com.android.tools.lint" name="lint-gradle" rev="26.4.1" conf="lintClassPath-&gt;default"/>
+    <dependency org="com.android.tools.lint" name="lint-gradle" rev="26.3.0" conf="lintClassPath-&gt;default"/>
     <dependency org="com.android.support" name="multidex" rev="1.0.2" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.squareup.okhttp3" name="okhttp" rev="3.9.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.squareup.okio" name="okio" rev="1.13.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
