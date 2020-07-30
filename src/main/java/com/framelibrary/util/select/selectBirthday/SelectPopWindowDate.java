@@ -43,7 +43,9 @@ public class SelectPopWindowDate {
 
         Calendar selectedDate = Calendar.getInstance();//系统当前时间
         Calendar startDate = Calendar.getInstance();
-        startDate.set(1900, 0, 1);
+
+        int normalStartYear = selectedDate.get(Calendar.YEAR) - 100;
+        startDate.set(normalStartYear, 0, 1);
         Calendar endDate = Calendar.getInstance();
         endDate.set(year_int, mouth_int - 1, day_int);
 

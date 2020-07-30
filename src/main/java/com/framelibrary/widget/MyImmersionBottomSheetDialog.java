@@ -20,6 +20,8 @@ import android.view.WindowManager;
 
 /**
  * 支持沉浸式的BottomSheetDialog
+ *
+ * @author wangweixu
  */
 
 public class MyImmersionBottomSheetDialog extends BottomSheetDialog {

@@ -8,9 +8,8 @@ import android.text.TextWatcher;
 import android.text.method.DigitsKeyListener;
 import android.widget.EditText;
 
-import com.framelibrary.config.BaseApplication;
-import com.lljjcoder.style.citylist.Toast.ToastUtils;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -65,11 +64,19 @@ public class TextChangedListener {
     public static void inputLimitSpaceWrap(int maxLength, InputFilter[] inputFilterArr, EditText... editText) {
         if (inputFilterArr != null && inputFilterArr.length != 0) {
             for (int i = 0; i < editText.length; i++) {
+                List<InputFilter> inputFilterList = new ArrayList<>();
+                inputFilterList.add(new InputFilter.LengthFilter(maxLength));
+                inputFilterList.add(SpaceWrap);
 
                 for (int j = 0; j < inputFilterArr.length; j++) {
-                    editText[i].setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxLength), SpaceWrap, inputFilterArr[j]});
+                    inputFilterList.add(inputFilterArr[j]);
                 }
 
+                InputFilter[] inputFilters = new InputFilter[inputFilterList.size()];
+                for (int z = 0; z < inputFilterList.size(); z++) {
+                    inputFilters[z] = inputFilterList.get(z);
+                }
+                editText[i].setFilters( inputFilters);
             }
         }
     }
@@ -82,7 +89,7 @@ public class TextChangedListener {
         public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
             if (source.equals(" ") || source.toString().contentEquals("\n")) {
 
-                ToastUtils.showShortToast(BaseApplication.getInstance().getBaseContext(), "禁止输入空格!");
+//                ToastUtils.showShortToast(BaseApplication.getInstance().getBaseContext(), "禁止输入空格!");
                 return "";
 
             } else return null;
@@ -98,10 +105,28 @@ public class TextChangedListener {
                     source.equals(6) || source.equals(7) ||
                     source.equals(8) || source.equals(9)) {
 
-                ToastUtils.showShortToast(BaseApplication.getInstance().getBaseContext(), "禁止输入数字!");
+//                ToastUtils.showShortToast(BaseApplication.getInstance().getBaseContext(), "禁止输入数字!");
                 return "";
 
             } else return null;
+        }
+    };
+
+
+    /**
+     * 只可以输入汉字+英文
+     */
+    public static InputFilter chineseTypeFilter = new InputFilter() {
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+            Pattern p = Pattern.compile("[a-zA-Z|\u4e00-\u9fa5]+");
+            Matcher matcher = p.matcher(source.toString());
+            if (!matcher.find()) {
+//                ToastUtils.showShortToast(BaseApplication.getInstance().getBaseContext(), "禁止输入特殊字符!");
+                return "";
+            } else {
+                return null;
+            }
         }
     };
 
@@ -115,7 +140,7 @@ public class TextChangedListener {
             Pattern pattern = Pattern.compile(speChat);
             Matcher matcher = pattern.matcher(source.toString());
             if (matcher.find()) {
-                ToastUtils.showShortToast(BaseApplication.getInstance().getBaseContext(), "禁止输入特殊字符!");
+//                ToastUtils.showShortToast(BaseApplication.getInstance().getBaseContext(), "禁止输入特殊字符!");
                 return "";
             } else {
                 return null;
@@ -134,6 +159,7 @@ public class TextChangedListener {
             InputLimitRegular(editText[i], regular);
         }
     }
+
 
     /**
      * 根据regular规则限制EditText输入类型

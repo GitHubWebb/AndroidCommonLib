@@ -140,6 +140,7 @@ public abstract class BaseMusicService extends IntentService {
                     }
                 }
             } catch (Exception e) {
+                LogUtils.I(TAG,"resume e:"+e.getMessage());
             }
         }
     }

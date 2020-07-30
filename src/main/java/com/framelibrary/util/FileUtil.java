@@ -3,6 +3,7 @@ package com.framelibrary.util;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.AudioRecord;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -225,6 +226,39 @@ public class FileUtil {
             Log.i("TAG", e.toString());
         }
     }
+
+
+    //保存Raw到本地
+    public static void saveMyRaw(Activity activity, String rawName, byte[] audiodata, int readsize, boolean mIsLoopExit) throws IOException {
+
+        String storageDirectory = getStorageDirectory(Environment.DIRECTORY_MUSIC, rawName + ".raw");
+        File file = new File(storageDirectory);
+        if (file.exists()) file.delete();
+
+        file.createNewFile();
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+
+            while (!mIsLoopExit) {
+                if (AudioRecord.ERROR_INVALID_OPERATION != readsize) {
+
+                    try {
+                        Log.i("saveMyRaw", "writeDateTOFile readsize" + readsize);
+                        //fos.write(audiodata);
+                        out.write(audiodata, 0, readsize);
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            out.flush();
+            out.close();
+        } catch (FileNotFoundException e) {
+            Log.i("TAG", e.toString());
+        }
+    }
+
 
     /**
      * 是否正在删除文件
