@@ -11,10 +11,10 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.framelibrary.R;
-import com.framelibrary.ui.widget.wheelview.adapter.wheelview.adapter.AbstractWheelTextAdapterChild;
-import com.framelibrary.ui.widget.wheelview.adapter.wheelview.listener.OnWheelChangedListener;
-import com.framelibrary.ui.widget.wheelview.adapter.wheelview.listener.OnWheelScrollListener;
-import com.framelibrary.ui.widget.wheelview.adapter.wheelview.view.WheelView;
+import com.framelibrary.widget.wheelview.adapter.wheelview.adapter.AbstractWheelTextAdapterChild;
+import com.framelibrary.widget.wheelview.adapter.wheelview.listener.OnWheelChangedListener;
+import com.framelibrary.widget.wheelview.adapter.wheelview.listener.OnWheelScrollListener;
+import com.framelibrary.widget.wheelview.adapter.wheelview.view.WheelView;
 import com.framelibrary.util.LogUtils;
 
 import java.util.ArrayList;

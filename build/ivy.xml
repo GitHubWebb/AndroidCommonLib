@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0" xmlns:m="http://ant.apache.org/ivy/maven">
-  <info organisation="MyApplication" module="frameLibrary" revision="unspecified" status="integration" publication="20190803012130"/>
+  <info organisation="MyApplication" module="frameLibrary" revision="unspecified" status="integration" publication="20200807155059"/>
   <configurations>
     <conf name="_internal_aapt2_binary" visibility="private" transitive="false"/>
     <conf name="androidApis" visibility="public"/>
@@ -133,11 +133,11 @@
   </publications>
   <dependencies>
     <dependency org="com.android.tools.build" name="aapt2" rev="3.3.0-5013011" conf="_internal_aapt2_binary-&gt;default">
-      <artifact name="aapt2" type="jar" ext="jar" m:classifier="windows" conf="_internal_aapt2_binary"/>
+      <artifact name="aapt2" type="jar" ext="jar" m:classifier="osx" conf="_internal_aapt2_binary"/>
     </dependency>
     <dependency org="com.alibaba" name="arouter-compiler" rev="1.2.2" conf="annotationProcessor-&gt;default"/>
     <dependency org="com.github.bumptech.glide" name="compiler" rev="4.8.0" conf="annotationProcessor-&gt;default"/>
-    <dependency org="com.jakewharton" name="butterknife-compiler" rev="8.8.1" conf="annotationProcessor-&gt;default"/>
+    <dependency org="com.jakewharton" name="butterknife-compiler" rev="10.2.1" conf="annotationProcessor-&gt;default"/>
     <dependency org="com.squareup.okhttp3" name="okhttp" rev="3.9.1" conf="api-&gt;default"/>
     <dependency org="com.google.code.gson" name="gson" rev="2.8.0" conf="api-&gt;default"/>
     <dependency org="org.apache.httpcomponents" name="httpcore" rev="4.4.2" conf="api-&gt;default"/>
@@ -172,10 +172,13 @@
     <dependency org="org.aspectj" name="aspectjrt" rev="1.8.9" conf="implementation-&gt;default"/>
     <dependency org="com.android.support" name="appcompat-v7" rev="28.0.0" conf="implementation-&gt;default"/>
     <dependency org="com.android.support" name="recyclerview-v7" rev="28.0.0" conf="implementation-&gt;default"/>
-    <dependency org="com.wwxframe" name="trytoseevideo" rev="0.0.1" conf="implementation-&gt;default">
+    <dependency org="com.wwxframe" name="trytoseevideo" rev="0.0.2" conf="implementation-&gt;default">
       <exclude org="com.android.support" module="*"/>
     </dependency>
-    <dependency org="com.jakewharton" name="butterknife" rev="8.8.1" conf="implementation-&gt;default"/>
+    <dependency org="com.wwxframe" name="widget_aar" rev="0.0.5" conf="implementation-&gt;default">
+      <exclude org="com.android.support" module="*"/>
+    </dependency>
+    <dependency org="com.jakewharton" name="butterknife" rev="10.2.1" conf="implementation-&gt;default"/>
     <dependency org="com.hjq" name="toast" rev="8.0" conf="implementation-&gt;default"/>
     <dependency org="com.android.tools.lint" name="lint-gradle" rev="26.3.0" conf="lintClassPath-&gt;default"/>
     <dependency org="com.android.support" name="multidex" rev="1.0.2" conf="releaseCompileClasspath-&gt;default"/>
@@ -255,7 +258,7 @@
     <dependency org="com.github.bumptech.glide" name="gifdecoder" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.github.bumptech.glide" name="disklrucache" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.github.bumptech.glide" name="annotations" rev="4.8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.wwxframe" name="trytoseevideo" rev="0.0.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.wwxframe" name="trytoseevideo" rev="0.0.2" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="cn.jzvd" name="jiaozivideoplayer" rev="7.0_preview" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="tv.danmaku.ijk.media" name="ijkplayer-java" rev="0.8.8" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.google.android.exoplayer" name="exoplayer" rev="2.9.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
@@ -271,8 +274,17 @@
     <dependency org="com.github.dueeeke.dkplayer" name="dkplayer-x86" rev="2.5.7" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.github.dueeeke.dkplayer" name="dkplayer-x86_64" rev="2.5.7" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.github.dueeeke.dkplayer" name="dkplayer-ui" rev="2.5.7" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.jakewharton" name="butterknife" rev="8.8.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
-    <dependency org="com.jakewharton" name="butterknife-annotations" rev="8.8.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.wwxframe" name="widget_aar" rev="0.0.5" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.jakewharton" name="butterknife" rev="10.2.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.jakewharton" name="butterknife-runtime" rev="10.2.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="com.jakewharton" name="butterknife-annotations" rev="10.2.1" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.annotation" name="annotation" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.core" name="core" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.collection" name="collection" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.lifecycle" name="lifecycle-runtime" rev="2.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.lifecycle" name="lifecycle-common" rev="2.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.arch.core" name="core-common" rev="2.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
+    <dependency org="androidx.versionedparcelable" name="versionedparcelable" rev="1.0.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.hjq" name="toast" rev="8.0" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.android.support" name="multidex" rev="1.0.2" transitive="false" conf="releaseCompileClasspath-&gt;default"/>
     <dependency org="com.android.support" name="multidex" rev="1.0.2" conf="releaseRuntimeClasspath-&gt;default"/>

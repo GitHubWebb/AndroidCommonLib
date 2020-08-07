@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 /**
  * String Utils
  *
- * @author <a href="http://www.trinea.cn" target="_blank">Trinea</a> 2011-7-22
+ * @author wangweixu
  */
 public class StringUtils {
     private static String TAG = Class.class.getName();

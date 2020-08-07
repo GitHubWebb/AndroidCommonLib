@@ -6,10 +6,10 @@ apply plugin: 'maven'
 ext {
     //记住一下规则,等会导入时注意, 举例compile 'com.dz.bleota:bleota:1.0.0'
 
-    GITHUB_REPO_PATH = "AAR"
+    GITHUB_REPO_PATH = "../GithubUserContent"
     PUBLISH_GROUP_ID = 'com.wwxframe'
     PUBLISH_ARTIFACT_ID = 'aar'
-    PUBLISH_VERSION = '0.2.8'
+    PUBLISH_VERSION = '0.2.11'
 }
 
 uploadArchives {
@@ -54,7 +54,7 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 18
+        minSdkVersion 16
         targetSdkVersion 27
 
         multiDexEnabled true
@@ -109,6 +109,8 @@ dependencies {
     api files('libs/universal-image-loader-1.9.4-with-sources.jar')
     api files('libs/ZipEntry.jar')
     api files('libs/ZXing-core-3.2.1.jar')
+
+
     api 'org.apache.httpcomponents:httpcore:4.4.2'
 
     //noinspection GradleCompatible,GradleCompatible
@@ -183,6 +185,11 @@ dependencies {
 
     //    api project(':TryToSeeVideoJiaoZi')
     implementation('com.wwxframe:trytoseevideo:0.0.2') {
+        transitive = true
+        exclude group: "com.android.support"
+    }
+
+    implementation('com.wwxframe:widget_aar:0.0.5') {
         transitive = true
         exclude group: "com.android.support"
     }

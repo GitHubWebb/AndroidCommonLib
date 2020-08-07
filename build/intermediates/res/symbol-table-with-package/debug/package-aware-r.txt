@@ -44,6 +44,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+animator scale_with_alpha
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -99,6 +100,7 @@ attr autoSizeMinTextSize
 attr autoSizePresetSizes
 attr autoSizeStepGranularity
 attr autoSizeTextType
+attr autoTurnTime
 attr auto_show
 attr background
 attr backgroundImage
@@ -106,6 +108,8 @@ attr backgroundSplit
 attr backgroundStacked
 attr backgroundTint
 attr backgroundTintMode
+attr banner_default_image
+attr banner_layout
 attr barLength
 attr bar_height
 attr behavior_autoHide
@@ -142,6 +146,8 @@ attr buttonStyle
 attr buttonStyleSmall
 attr buttonTint
 attr buttonTintMode
+attr canLoop
+attr canTurn
 attr cardBackgroundColor
 attr cardCornerRadius
 attr cardElevation
@@ -231,6 +237,7 @@ attr counterTextAppearance
 attr customNavigationLayout
 attr defaultQueryHint
 attr default_artwork
+attr delay_time
 attr dialogCornerRadius
 attr dialogPreferredPadding
 attr dialogTheme
@@ -320,12 +327,20 @@ attr iconTint
 attr iconTintMode
 attr iconifiedByDefault
 attr imageButtonStyle
+attr image_scale_type
 attr indeterminateProgressStyle
+attr indicator_drawable_selected
+attr indicator_drawable_unselected
+attr indicator_height
+attr indicator_margin
+attr indicator_width
 attr initialActivityCount
 attr insetForeground
 attr ios
 attr isLightTheme
 attr isOpened
+attr isTouchScroll
+attr is_auto_play
 attr itemBackground
 attr itemHorizontalPadding
 attr itemHorizontalTranslationEnabled
@@ -483,6 +498,7 @@ attr repeat_toggle_modes
 attr resize_mode
 attr retryImage
 attr retryImageScaleType
+attr reverse
 attr reverseLayout
 attr rewind_increment
 attr rippleColor
@@ -503,6 +519,8 @@ attr roundingBorderWidth
 attr scrimAnimationDuration
 attr scrimBackground
 attr scrimVisibleHeightTrigger
+attr scrollDuration
+attr scroll_time
 attr scrubber_color
 attr scrubber_disabled_size
 attr scrubber_dragged_size
@@ -644,6 +662,10 @@ attr titleMargins
 attr titleTextAppearance
 attr titleTextColor
 attr titleTextStyle
+attr title_background
+attr title_height
+attr title_textcolor
+attr title_textsize
 attr toolbarId
 attr toolbarNavigationButtonStyle
 attr toolbarStyle
@@ -1467,6 +1489,7 @@ drawable bg_progress_gray
 drawable bg_progress_write
 drawable bg_white
 drawable bg_yellow_btn_filling
+drawable black_background
 drawable btn_left_gray
 drawable circle_text
 drawable city_bg_l
@@ -1547,6 +1570,7 @@ drawable exo_notification_previous
 drawable exo_notification_rewind
 drawable exo_notification_small_icon
 drawable exo_notification_stop
+drawable gray_radius
 drawable ic_check
 drawable ic_citypicker_bar_back
 drawable ic_citypicker_ios
@@ -1617,6 +1641,7 @@ drawable msp_icon
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable no_banner
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -1639,6 +1664,7 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable wheel_bg
 drawable wheel_val
+drawable white_radius
 id action0
 id action_bar
 id action_bar_activity_content
@@ -1669,9 +1695,14 @@ id async
 id attachPopupContainer
 id authV2
 id auto
+id autoTurnViewPager
 id auto_focus
 id back
 id back_tiny
+id bannerContainer
+id bannerDefaultImage
+id bannerTitle
+id bannerViewPager
 id basic
 id battery_level
 id battery_time_layout
@@ -1695,7 +1726,9 @@ id center
 id centerCrop
 id centerInside
 id centerPopupContainer
+id center_crop
 id center_horizontal
+id center_inside
 id center_vertical
 id chains
 id check_view
@@ -1703,6 +1736,7 @@ id checkbox
 id checkmark
 id choose_tab
 id chronometer
+id circleIndicator
 id cityInputText
 id city_listview
 id city_recyclerview
@@ -1788,6 +1822,10 @@ id fitCenter
 id fitEnd
 id fitStart
 id fitXY
+id fit_center
+id fit_end
+id fit_start
+id fit_xy
 id fixed
 id fixed_height
 id fixed_width
@@ -1817,9 +1855,11 @@ id imageview
 id imgBack
 id img_left
 id indicator
+id indicatorInside
 id info
 id italic
 id item_touch_helper_previous_elevation
+id iv_autoTurnViewPager
 id iv_back_button
 id iv_battery
 id iv_icon
@@ -1851,6 +1891,7 @@ id localCityTag
 id lock
 id mask
 id masked
+id matrix
 id media_actions
 id menu_copy_text
 id menu_share_image
@@ -1872,6 +1913,8 @@ id noticeText
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id numIndicator
+id numIndicatorInside
 id options1
 id options2
 id options3
@@ -1909,6 +1952,7 @@ id right_icon
 id right_side
 id rl_common_title
 id rl_title
+id rl_viewpager_gallery
 id root
 id rv_topbar
 id save_image_matrix
@@ -1989,6 +2033,7 @@ id timepicker
 id tipTextView
 id title
 id titleDividerNoCustom
+id titleView
 id title_template
 id toolbar
 id top
@@ -2047,6 +2092,7 @@ id viewfinder_view
 id visible
 id volume_image_tip
 id volume_progressbar
+id vp_wenld_banner
 id web_filechooser
 id when_playing
 id widget_album
@@ -2131,8 +2177,10 @@ layout activity_crash
 layout activity_default
 layout activity_lib_main
 layout activity_title
+layout banner
 layout camera
 layout cmp_customer_actionbar
+layout default_indicator
 layout default_item_city
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -2165,6 +2213,7 @@ layout filechooser_layout
 layout floatwindow
 layout fragment_multi_image
 layout include_pickerview_topbar
+layout include_wenld_banner
 layout item_citylist
 layout item_data_select
 layout item_recyle_footview
@@ -2215,6 +2264,7 @@ layout select_dialog_singlechoice_material
 layout sortlistview_item
 layout support_simple_spinner_dropdown_item
 layout tooltip
+layout wenld_banner
 menu main
 menu menu_more
 mipmap asy
@@ -2228,6 +2278,8 @@ mipmap btn_unselected
 mipmap default_check
 mipmap default_error
 mipmap ic_launcher
+mipmap ic_page_indicator
+mipmap ic_page_indicator_focused
 mipmap icon_back
 mipmap icon_search
 mipmap text_indicator
@@ -2959,6 +3011,7 @@ styleable AppCompatTextHelper android_drawableBottom android_drawableEnd android
 styleable AppCompatTextView android_textAppearance autoSizeMaxTextSize autoSizeMinTextSize autoSizePresetSizes autoSizeStepGranularity autoSizeTextType firstBaselineToTopHeight fontFamily lastBaselineToBottomHeight lineHeight textAllCaps
 styleable AppCompatTheme actionBarDivider actionBarItemBackground actionBarPopupTheme actionBarSize actionBarSplitStyle actionBarStyle actionBarTabBarStyle actionBarTabStyle actionBarTabTextStyle actionBarTheme actionBarWidgetTheme actionButtonStyle actionDropDownStyle actionMenuTextAppearance actionMenuTextColor actionModeBackground actionModeCloseButtonStyle actionModeCloseDrawable actionModeCopyDrawable actionModeCutDrawable actionModeFindDrawable actionModePasteDrawable actionModePopupWindowStyle actionModeSelectAllDrawable actionModeShareDrawable actionModeSplitBackground actionModeStyle actionModeWebSearchDrawable actionOverflowButtonStyle actionOverflowMenuStyle activityChooserViewStyle alertDialogButtonGroupStyle alertDialogCenterButtons alertDialogStyle alertDialogTheme android_windowAnimationStyle android_windowIsFloating autoCompleteTextViewStyle borderlessButtonStyle buttonBarButtonStyle buttonBarNegativeButtonStyle buttonBarNeutralButtonStyle buttonBarPositiveButtonStyle buttonBarStyle buttonStyle buttonStyleSmall checkboxStyle checkedTextViewStyle colorAccent colorBackgroundFloating colorButtonNormal colorControlActivated colorControlHighlight colorControlNormal colorError colorPrimary colorPrimaryDark colorSwitchThumbNormal controlBackground dialogCornerRadius dialogPreferredPadding dialogTheme dividerHorizontal dividerVertical dropDownListViewStyle dropdownListPreferredItemHeight editTextBackground editTextColor editTextStyle homeAsUpIndicator imageButtonStyle listChoiceBackgroundIndicator listDividerAlertDialog listMenuViewStyle listPopupWindowStyle listPreferredItemHeight listPreferredItemHeightLarge listPreferredItemHeightSmall listPreferredItemPaddingLeft listPreferredItemPaddingRight panelBackground panelMenuListTheme panelMenuListWidth popupMenuStyle popupWindowStyle radioButtonStyle ratingBarStyle ratingBarStyleIndicator ratingBarStyleSmall searchViewStyle seekBarStyle selectableItemBackground selectableItemBackgroundBorderless spinnerDropDownItemStyle spinnerStyle switchStyle textAppearanceLargePopupMenu textAppearanceListItem textAppearanceListItemSecondary textAppearanceListItemSmall textAppearancePopupMenuHeader textAppearanceSearchResultSubtitle textAppearanceSearchResultTitle textAppearanceSmallPopupMenu textColorAlertDialogListItem textColorSearchUrl toolbarNavigationButtonStyle toolbarStyle tooltipForegroundColor tooltipFrameBackground viewInflaterClass windowActionBar windowActionBarOverlay windowActionModeOverlay windowFixedHeightMajor windowFixedHeightMinor windowFixedWidthMajor windowFixedWidthMinor windowMinWidthMajor windowMinWidthMinor windowNoTitle
 styleable AspectRatioFrameLayout resize_mode
+styleable Banner banner_default_image banner_layout delay_time image_scale_type indicator_drawable_selected indicator_drawable_unselected indicator_height indicator_margin indicator_width is_auto_play scroll_time title_background title_height title_textcolor title_textsize
 styleable BaseIjkVideoView autoRotate enableAudioFocus enableMediaCodec looping usingSurfaceView
 styleable BottomAppBar backgroundTint fabAlignmentMode fabCradleMargin fabCradleRoundedCornerRadius fabCradleVerticalOffset hideOnScroll
 styleable BottomNavigationView elevation itemBackground itemHorizontalTranslationEnabled itemIconSize itemIconTint itemTextAppearanceActive itemTextAppearanceInactive itemTextColor labelVisibilityMode menu
@@ -3029,6 +3082,7 @@ styleable ViewBackgroundHelper android_background backgroundTint backgroundTintM
 styleable ViewStubCompat android_id android_inflatedId android_layout
 styleable hprogress max progress progressColor progressHeight
 styleable pickerview pickerview_dividerColor pickerview_gravity pickerview_lineSpacingMultiplier pickerview_textColorCenter pickerview_textColorOut pickerview_textSize
+styleable wenldBanner autoTurnTime canLoop canTurn isTouchScroll reverse scrollDuration
 xml file_paths
 xml jz_network_security_config
 xml provider_paths

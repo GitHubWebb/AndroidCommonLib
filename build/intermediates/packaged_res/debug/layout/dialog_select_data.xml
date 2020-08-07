@@ -39,14 +39,14 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
-        <com.framelibrary.ui.widget.wheelview.adapter.wheelview.view.WheelView
+        <com.framelibrary.widget.wheelview.adapter.wheelview.view.WheelView
             android:id="@+id/wv_one"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1" />
 
-        <com.framelibrary.ui.widget.wheelview.adapter.wheelview.view.WheelView
+        <com.framelibrary.widget.wheelview.adapter.wheelview.view.WheelView
             android:id="@+id/wv_two"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
