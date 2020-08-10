@@ -30,13 +30,13 @@
         android:label="@string/app_name"
         tools:replace="android:allowBackup" >
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="com.framelibrary.config.FrameFileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
+                android:resource="@xml/frame_provider_paths" />
         </provider>
 
         <receiver android:name="com.framelibrary.widget.audio.AudioPlayerReceiver" >

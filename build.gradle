@@ -12,11 +12,11 @@ ext {
 
     GITHUB_REPO_PATH = "../GithubUserContent"
     PUBLISH_GROUP_ID = 'com.wwxframe'
-    PUBLISH_ARTIFACT_ID = 'unlib_aar'
-    PUBLISH_VERSION = '0.0.1'
+    PUBLISH_ARTIFACT_ID = 'aar'
+    PUBLISH_VERSION = '0.2.12'
 }
 
-uploadArchives {
+/*uploadArchives {
     repositories {
         mavenDeployer {
             //本地maven仓库地址,也可以使用远程maven仓库
@@ -39,7 +39,7 @@ task androidSourcesJar(type: Jar) {
 
 artifacts {
     archives androidSourcesJar
-}
+}*/
 
 android {
     compileSdkVersion 28

@@ -4034,5 +4034,5 @@ int styleable wenldBanner_isTouchScroll 3
 int styleable wenldBanner_reverse 4
 int styleable wenldBanner_scrollDuration 5
 int xml file_paths 0x7f180001
-int xml jz_network_security_config 0x7f180002
-int xml provider_paths 0x7f180003
+int xml frame_provider_paths 0x7f180002
+int xml jz_network_security_config 0x7f180003

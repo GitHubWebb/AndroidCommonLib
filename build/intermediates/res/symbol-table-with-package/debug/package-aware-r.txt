@@ -3084,5 +3084,5 @@ styleable hprogress max progress progressColor progressHeight
 styleable pickerview pickerview_dividerColor pickerview_gravity pickerview_lineSpacingMultiplier pickerview_textColorCenter pickerview_textColorOut pickerview_textSize
 styleable wenldBanner autoTurnTime canLoop canTurn isTouchScroll reverse scrollDuration
 xml file_paths
+xml frame_provider_paths
 xml jz_network_security_config
-xml provider_paths

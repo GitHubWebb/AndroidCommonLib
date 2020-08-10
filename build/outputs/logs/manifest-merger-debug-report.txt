@@ -67,7 +67,7 @@ ADDED from /Users/wangweixu/jeemoo/Android/MyApplication/frameLibrary/src/main/A
 		ADDED from /Users/wangweixu/jeemoo/Android/MyApplication/frameLibrary/src/main/AndroidManifest.xml:26:9-36
 	tools:replace
 		ADDED from /Users/wangweixu/jeemoo/Android/MyApplication/frameLibrary/src/main/AndroidManifest.xml:28:9-44
-provider#android.support.v4.content.FileProvider
+provider#com.framelibrary.config.FrameFileProvider
 ADDED from /Users/wangweixu/jeemoo/Android/MyApplication/frameLibrary/src/main/AndroidManifest.xml:30:9-38:20
 	android:grantUriPermissions
 		ADDED from /Users/wangweixu/jeemoo/Android/MyApplication/frameLibrary/src/main/AndroidManifest.xml:34:13-47
@@ -76,11 +76,11 @@ ADDED from /Users/wangweixu/jeemoo/Android/MyApplication/frameLibrary/src/main/A
 	android:exported
 		ADDED from /Users/wangweixu/jeemoo/Android/MyApplication/frameLibrary/src/main/AndroidManifest.xml:33:13-37
 	android:name
-		ADDED from /Users/wangweixu/jeemoo/Android/MyApplication/frameLibrary/src/main/AndroidManifest.xml:31:13-67
+		ADDED from /Users/wangweixu/jeemoo/Android/MyApplication/frameLibrary/src/main/AndroidManifest.xml:31:13-53
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /Users/wangweixu/jeemoo/Android/MyApplication/frameLibrary/src/main/AndroidManifest.xml:35:13-37:58
+ADDED from /Users/wangweixu/jeemoo/Android/MyApplication/frameLibrary/src/main/AndroidManifest.xml:35:13-37:64
 	android:resource
-		ADDED from /Users/wangweixu/jeemoo/Android/MyApplication/frameLibrary/src/main/AndroidManifest.xml:37:17-55
+		ADDED from /Users/wangweixu/jeemoo/Android/MyApplication/frameLibrary/src/main/AndroidManifest.xml:37:17-61
 	android:name
 		ADDED from /Users/wangweixu/jeemoo/Android/MyApplication/frameLibrary/src/main/AndroidManifest.xml:36:17-67
 receiver#com.framelibrary.widget.audio.AudioPlayerReceiver
