@@ -8,8 +8,8 @@ ext {
 
     GITHUB_REPO_PATH = "../GithubUserContent"
     PUBLISH_GROUP_ID = 'com.wwxframe'
-    PUBLISH_ARTIFACT_ID = 'aar'
-    PUBLISH_VERSION = '0.2.11'
+    PUBLISH_ARTIFACT_ID = 'unlib-aar'
+    PUBLISH_VERSION = '0.0.1'
 }
 
 uploadArchives {
@@ -102,13 +102,15 @@ android {
 dependencies {
     api 'com.squareup.okhttp3:okhttp:3.9.1'
     api 'com.google.code.gson:gson:2.8.0'
-    api files('libs/android-async-http-1.4.6.jar')
-    api files('libs/FileDownloader-0.3.2-sources.jar')
-    api files('libs/FileDownloader-0.3.2.jar')
     api files('libs/umeng-analytics-v6.0.1.jar')
-    api files('libs/universal-image-loader-1.9.4-with-sources.jar')
-    api files('libs/ZipEntry.jar')
-    api files('libs/ZXing-core-3.2.1.jar')
+    api files('libs/pldroid-shortvideo-1.10.0.jar')
+
+    compile files('libs/android-async-http-1.4.6.jar')
+    compile files('libs/FileDownloader-0.3.2-sources.jar')
+    compile files('libs/FileDownloader-0.3.2.jar')
+    compile files('libs/universal-image-loader-1.9.4-with-sources.jar')
+    compile files('libs/ZipEntry.jar')
+    compile files('libs/ZXing-core-3.2.1.jar')
 
 
     api 'org.apache.httpcomponents:httpcore:4.4.2'
@@ -122,7 +124,6 @@ dependencies {
 
     //noinspection Gracom.android.support:appcompat-v7:26.+dleCompatible
     api 'com.android.support:design:28.0.0'
-    api files('libs/pldroid-shortvideo-1.10.0.jar')
     api 'com.github.anzewei:parallaxbacklayout:1.1.9'
 
     //最新版本见github
